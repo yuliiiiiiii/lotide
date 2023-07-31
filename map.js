@@ -16,29 +16,10 @@ console.log(results1);
 console.log(results2);
 console.log(results3);
 
-const assertArraysEqual = function(array1, array2) {
-
-  if (array1.length !== array2.length) {
-    console.log(`😡😡😡 Assertion Failed: ${array1} !== ${array2}`);
-    return;
-  }
-
-  for (let i = 0; i < array1.length; i++) {
-    if (array1[i] !== array2[i]) {
-      console.log(`😡😡😡 Assertion Failed: ${array1} !== ${array2}`);
-      return;
-      // to exit the function
-    }
-  }
-  console.log(`😁😁😁 Assertion Passed: ${array1} === ${array2}`);
-}
-
 const eqArrays = function(array1, array2) {
-
   if (array1.length !== array2.length) {
     return false;
   }
-
   for (let i = 0; i < array1.length; i++) {
     if (array1[i] !== array2[i]) {
       return false;
@@ -46,6 +27,15 @@ const eqArrays = function(array1, array2) {
   }
   return true;
 };
+
+const assertArraysEqual = function(array1, array2) {
+  if (eqArrays(array1, array2)) {
+    console.log(`😁😁😁 Assertion Passed: ${array1} === ${array2}`);
+  }
+  if (!eqArrays(array1,array2)) {
+    console.log(`😡😡😡 Assertion Failed: ${array1} !== ${array2}`);
+  }
+}
 
 assertArraysEqual(results1, ["g", "c", "t", "m", "t"]);
 assertArraysEqual(results2, ["r", "o", "o", "a", "o"]);
