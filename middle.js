@@ -1,6 +1,6 @@
 const middle = function(array) {
   let midarray = [];
-  if (array.length === 1 || array.length === 2) {
+  if (array.length === 1 || array.length === 2 || array.length === 0) {
     return midarray;
   } else if (array.length % 2 !== 0) {
     let i = (array.length - 1) / 2;
